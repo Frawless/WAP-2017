@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="cs">
+    <head>
+        <title>WAP projekt - dynamická tabulka</title>
+        <meta charset="utf-8" />
+        <meta name="description" content="Ukázková stránka pro projekt WAP" />
+        <meta name="author" content="Jakub Stejskal" />
+        <link href='styles.css' rel='stylesheet' type='text/css' />
+        <script src="xstejs24.js"></script>  
+    </head>
+    <body>
+        <h1>WAP projekt - Dynamická tabulka</h1>
+
+        <!--<input type="text" id="myInput" onkeyup="myFunction('myTable')" placeholder="Search for names..">-->
+
+		<table id="myTable" class="sortable" cellspacing="0" width="100%">
+		    <thead>
+		        <tr>
+		            <th data-type="string">Name</th>
+		            <th data-type="string">Position</th>
+		            <th data-type="text">Office</th>
+		            <th data-type="int">Age</th>
+		            <th data-type="text">Start date</th>
+		            <th data-type="string">Salary</th>
+		        </tr>
+		    </thead>
+		    <tbody>
+		        <tr>
+		            <td>Bradley Greer</td>
+		            <td>Software Engineer</td>
+		            <td>London</td>
+		            <td>41</td>
+		            <td>2012/10/13</td>
+		            <td>$132,000</td>
+		        </tr>
+		        <tr>
+		            <td>Dai Rios</td>
+		            <td>Personnel Lead</td>
+		            <td>Edinburgh</td>
+		            <td>35</td>
+		            <td>2012/09/26</td>
+		            <td>$217,500</td>
+		        </tr>
+		        <tr>
+		            <td>Jenette Caldwell</td>
+		            <td>Development Lead</td>
+		            <td>New York</td>
+		            <td>30</td>
+		            <td>2011/09/03</td>
+		            <td>$345,000</td>
+		        </tr>
+		        <tr>
+		            <td>Yuri Berry</td>
+		            <td>Chief Marketing Officer (CMO)</td>
+		            <td>New York</td>
+		            <td>40</td>
+		            <td>2009/06/25</td>
+		            <td>$675,000</td>
+		        </tr>
+		        <tr>
+		            <td>Caesar Vance</td>
+		            <td>Pre-Sales Support</td>
+		            <td>New York</td>
+		            <td>21</td>
+		            <td>2011/12/12</td>
+		            <td>$106,450</td>
+		        </tr>
+		        <tr>
+		            <td>Doris Wilder</td>
+		            <td>Sales Assistant</td>
+		            <td>Sidney</td>
+		            <td>187</td>
+		            <td>2010/09/20</td>
+		            <td>$85,600</td>
+		        </tr>
+		        <tr>
+		            <td>Suki Burks</td>
+		            <td>Developer</td>
+		            <td>London</td>
+		            <td>530</td>
+		            <td>2009/10/22</td>
+		            <td>$114,500</td>
+		        </tr>
+		        <tr>
+		            <td>Prescott Bartlett</td>
+		            <td>Technical Author</td>
+		            <td>London</td>
+		            <td>27</td>
+		            <td>2011/05/07</td>
+		            <td>$145,000</td>
+		        </tr>
+		        <tr>
+		            <td>Gavin Cortez</td>
+		            <td>Team Leader</td>
+		            <td>San Francisco</td>
+		            <td>22</td>
+		            <td>2008/10/26</td>
+		            <td>$235,500</td>
+		        </tr>
+		    </tbody>
+		    <tfoot>
+		        <tr>
+		            <th>Name-pat</th>
+		            <th>Position-pat</th>
+		            <th>Office-pat</th>
+		            <th>Age-pat</th>
+		            <th>Start date-pat</th>
+		            <th>Salary-pat</th>
+		        </tr>
+		    </tfoot>
+		</table>
+    </body>
+</html>

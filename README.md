@@ -1,1 +1,4 @@
 # WAP-2017
+Projekt do předmětu Webové aplikace.
+
+Zadání: Mějme libovolnou HTML tabulku umístěnou v dokumentu opatřenou identifikátorem id. Vytvořte funkci v JavaScriptu s parametrem id tabulky (případně dalšími parametry), která nad první řádek tabulky přidá vstupní pole umožňující filtrování obsahu a ikony pro řazení obsahu sloupce vzestupně a sestupně. Filtr funguje tak, že řádek tabulky se zobrazí, pokud buňka v příslušném sloupci obsahuje podřetězec zadaný do vstupního pole nad tímto sloupcem. Tvůrce stránky může pro každý sloupec zvolit, zda se prvky daného sloupce řadí jako čísla nebo jako řetězce. Případné prvky thead a tfoot v tabulce jsou při filtrování a řazení ignorovány - zpracovává se pouze jeden prvek tbody. Předpokládejte, že všechny hodnoty colspan a rowspan jsou rovny 1. Pro filtrování se uvažuje textový obsah buněk tabulky, jeho případné strukturování na elementy se ignoruje.

@@ -1,0 +1,61 @@
+.cell {
+    background-position: 10px 12px; /* Position the search icon */
+    background-repeat: no-repeat; /* Do not repeat the icon image */
+	width: 60%; /* Full-width */
+    font-size: 14px; /* Increase font-size */
+    padding: 6px 10px 6px 10px; /* Add some padding */
+    border: 1px solid #ddd; /* Add a grey border */
+    margin-bottom: 4px; /* Add some space below the input */
+}
+
+table {
+    border-collapse: collapse; /* Collapse borders */
+    width: 100%; /* Full-width */
+    border: 2px solid #ddd; /* Add a grey border */
+    font-size: 18px; /* Increase font-size */
+}
+
+table th, #myTable td {
+    text-align: left; /* Left-align text */
+    padding: 8px; /* Add padding */
+}
+
+table tr {
+    /* Add a bottom border to all table rows */
+    border-bottom: 2px solid #ddd; 
+}
+
+table thead, #myTable tr:hover {
+    /* Add a grey background color to the table header and on hover */
+    background-color: #f1f1f1;
+}
+
+table thead {
+	border: 3px solid #ddd
+}
+
+/* šipky pro řazení */
+.sortAsc:not(.sorttable_sorted):not(.sorttable_sorted_reverse):not(.sorttable_nosort):after{
+	content: "\25B4";
+	cursor:pointer;
+	width: 20%;
+}
+
+.sortDsc:not(.sorttable_sorted):not(.sorttable_sorted_reverse):not(.sorttable_nosort):after{
+	content: "\25BE";
+	cursor:pointer;
+	width: 20%;
+}
+
+/* zobrazení řazení a vyhledávání vedle sebe */
+.sort{
+	display:inline;
+	padding: 5px;
+	width: 100%;
+}
+
+tfoot input {
+        width: 100%;
+        padding: 3px;
+        box-sizing: border-box;
+    }
