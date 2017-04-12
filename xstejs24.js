@@ -10,6 +10,7 @@
 
 var table;
 
+// Funkce pro vytvoření formulářů u jednotlivých sloupců tabulky
 function createForms(tableId) {
 	// načtení tabulky
 	table = document.getElementById(tableId);	
@@ -21,14 +22,14 @@ function createForms(tableId) {
 		console.log(colCount);
 	}
 	else{
-		// tabulka nemá hlavičku, spočítají se řádky a vytvoří se prázdná hlavička pouze pro filtrovací formuláře
+		// tabulka nemá hlavičku, spočítají se řádky a vytvoří se prázdná hlavička pouze pro filtrovací formuláře (filtrování umožňěno)
 		colCount = table.getElementsByTagName('tbody')[0].getElementsByTagName('tr')[0].getElementsByTagName('td').length;
 		tableHead = document.createElement('thead');
 		table.insertBefore(tableHead, tableHead.getElementsByTagName('tbody')[0]);
 		console.log(colCount);
 	}
 
-	//newTableHead = table.createTHead(); // nejde, možná zjistit proč, formuláře jsou pak vždy pod hlavičkou
+	//newTableHead = table.createTHead(); // 
 	//newTableHead = document.createElement('thead');
 	//var row = tableHead.insertRow(0);
 
@@ -57,19 +58,20 @@ function filterData(colCount){
 		var showThisLine = true;
 		// procházení sloupců
 		for (i = 0; i < colCount; i++) {
-			var input = document.getElementById('form_'+i);
-			var filter = input.value.toUpperCase();
+			var input = document.getElementById('form_'+i);		// Získání jednotlivých formulářů podle označení form_n kde n je číslo
+			var filter = input.value.toUpperCase();				// Získání hodnoty z jednotlivých formulářů pro filtrování
 			var td = tr[j].getElementsByTagName('td')[i];
 //			console.log("Filtruji podle: "+input.value);
 			if (td) {
 	//			console.log(td.innerHTML.toUpperCase());
-				if (td.innerHTML.toUpperCase().indexOf(filter) < 0){
-					showThisLine = false;	// nastavení příznaku pro zobrazení řádky
+				// Filtrování obsahu
+				if (td.innerText.toUpperCase().indexOf(filter) < 0){
+					showThisLine = false;	// Nastavení příznaku pro zobrazení řádky
 				} 
 			}
 			
 		}
-		// zobrazení/skrytí řádku na základě příznaku showThisLine
+		// Zobrazení/skrytí řádku na základě příznaku showThisLine
 		if (showThisLine) {
 			tr[j].style.display = "";
 		} 
@@ -89,8 +91,8 @@ function sortTable(cellId,asc){
 	// získání datového typu z tabulky pokud není hlavička/z hlavičky
 	var sortType = type === undefined ? table.tBodies[0].getElementsByTagName('td')[cellId].getAttribute("data-type") : type.cells[cellId].getAttribute("data-type");
 	// deklarace proměnných
-	var switching = true;
-	var shouldSwitch;
+	var switching = true;		// Příznak pro prohození hodnot
+	var shouldSwitch;			// Přiznak pro "mám prohodit?"
 	var i;
 
 	// řazení
@@ -102,19 +104,26 @@ function sortTable(cellId,asc){
 			shouldSwitch = false;
 			var x = rows[i].getElementsByTagName("td")[cellId];
 			var y = rows[i+1].getElementsByTagName("td")[cellId];
+			// Rozlišení datových typů pro řazení - text a číslo
 			x = sortType === "int" ? parseInt(x.innerHTML) : x.innerHTML.toUpperCase()
 			y = sortType === "int" ? parseInt(y.innerHTML) : y.innerHTML.toUpperCase()
 
 			//console.log("SortType: "+sortType+", value: "+x);
 			//console.log("SortType: "+sortType+", value: "+y);
-
+			
+			// Vzestupné řazení
 			if(asc){
+				//shouldSwitch = x > y ? true : false;
+				//break;
 				if(x > y){
 					shouldSwitch = true;
 					break;
 				}
 			}
+			// Sestupné
 			else{
+				//shouldSwitch = x < y ? true : false;
+				//break;
 				if(x < y){
 					shouldSwitch = true;
 					break;
@@ -122,6 +131,7 @@ function sortTable(cellId,asc){
 			}
 		}
 		//console.log(shouldSwitch);
+		// Pokud mám prohodit tak prohodím hodnoty
 		if (shouldSwitch){
 			rows[i].parentNode.insertBefore(rows[i+1],rows[i]);
 			switching = true;
@@ -129,7 +139,7 @@ function sortTable(cellId,asc){
 	}
 }
 
-
+// Vyvolání javascriptu
 window.onload = function(){
 	createForms('myTable');
 };
