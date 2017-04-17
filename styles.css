@@ -1,32 +1,45 @@
+/*
+ *	Projekt do předmětu WAP
+ *	Dynamická tabulka
+ *	Autor: Bc. Jakub Stejskal
+ *  Popis: Skript realizuje filtrování a řazení v libovolné html tabulce
+*/
+
+/* Hlavní zdroj - https://www.w3schools.com/howto/howto_js_filter_table.asp
+ http://stackoverflow.com/questions/3248869/how-do-i-get-data-from-a-data-table-in-javascript */
+
+/* styl pro vložené filtrovací formuláře */
 .cell {
-    background-position: 10px 12px; /* Position the search icon */
-    background-repeat: no-repeat; /* Do not repeat the icon image */
-	width: 60%; /* Full-width */
-    font-size: 14px; /* Increase font-size */
-    padding: 6px 10px 6px 10px; /* Add some padding */
-    border: 1px solid #ddd; /* Add a grey border */
-    margin-bottom: 4px; /* Add some space below the input */
+    background-position: 10px 12px;
+    background-repeat: no-repeat;
+	width: 60%;
+    font-size: 14px;
+    padding: 6px 10px 6px 10px;
+    border: 1px solid #ddd;
+    margin-bottom: 4px;
 }
 
+/* styl tabulky */
 table {
-    border-collapse: collapse; /* Collapse borders */
-    width: 100%; /* Full-width */
-    border: 2px solid #ddd; /* Add a grey border */
-    font-size: 18px; /* Increase font-size */
+    border-collapse: collapse;
+    width: 100%;
+    border: 2px solid #ddd;
+    font-size: 18px;
 }
 
-table th, #myTable td {
-    text-align: left; /* Left-align text */
-    padding: 8px; /* Add padding */
+/* styl td a th elementů*/
+table th, table td {
+    text-align: left;
+    padding: 8px;
 }
 
+/* styl tr elementů*/
 table tr {
-    /* Add a bottom border to all table rows */
     border-bottom: 2px solid #ddd; 
 }
 
-table thead, #myTable tr:hover {
-    /* Add a grey background color to the table header and on hover */
+/* styly hlavičky */
+table thead, table tr:hover {
     background-color: #f1f1f1;
 }
 
@@ -47,15 +60,22 @@ table thead {
 	width: 20%;
 }
 
+/* FIreFox padding odstranění */
+button::-moz-focus-inner {
+    border:0;
+    padding:0;
+	width:5px;
+}
+
 /* zobrazení řazení a vyhledávání vedle sebe */
 .sort{
 	display:inline;
 	padding: 5px;
-	width: 100%;
+	width: 80%;
 }
 
 tfoot input {
-        width: 100%;
-        padding: 3px;
-        box-sizing: border-box;
-    }
+    width: 100%;
+    padding: 3px;
+    box-sizing: border-box;
+}

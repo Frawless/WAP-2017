@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="cs">
+    <head>
+        <title>WAP projekt - dynamická tabulka</title>
+        <meta charset="utf-8" />
+        <meta name="description" content="Návod pro projekt WAP" />
+        <meta name="author" content="Jakub Stejskal" />
+    </head>
+    <body>
+        <h1>WAP projekt - Návod</h1>
+        <h2>Autor: Jakub Stejskal (xstejs24)</h2>
+
+		<p>Importovaný javascriptový soubor umožňuje vyhledávání v libovolně velké HTML tabulce na základě porovnání řetězců uvnitř tabulky a vstupem zadaným ve filtrovacím poli. Každý sloupec tabulky má vlastní filtrovací formulář. Řádky, které neobsahují podřetězec z filtrovacího formuláře jsou skryty. Dále je možné řadit data ve sloupcích vzestupně/sestupně podle textu a nebo podle čísla na základě datového typu, který je uveden v hlavičce tabulky (data-type=int, data-type=string...)</p>
+
+		<p>Funkce javascriptu musí dostat při zobrazení okna id tabulky (myTable) pro správnou funkčnost. Pokud není k dispozici hlavička, spočítá se počet sloupců a vytvoří se nová hlavička pouze pro řazení/filtrování. Filtrování je nastaveno jako case-insensitive pomocí převodu všech řetězců na velká písmena, funkce <b>toUpperCase()</b>. Pro nastavení case-senstive filtrování je potřeba tyto převody ostranit.</p>
+
+		<p>Jako první je vyvolána funkce <b><i>createForms(tableId)</i></b>, které vytvoří novou hlavičku s filtrovacími formuláři pro každý sloupec a dvěmi řadícími tlačítky (sestupně/vzestupně). Při stisknutí klávesy v zadávání/mazání znaků z filtrovacích formulářů je volána funkce <b><i>filterData(colCount)</i></b> s předáním hodnoty počtu sloupců, podle které je identifikován správný formulář pro filtrování. Funkce prochází všechny řádky daného sloupce a schovává ty řádky, které neobsahují zadaný podřetězec.</p>
+		<p>Po stistknutí tlačítka pro řazení je volána funkce <b><i>sortTable(cellId,asc)</i></b> s id sloupce a příznakem, zda řadit vzestupně, nebo sestupně. Ve funkci je na základě id sloupce zjištěn datový typ sloupce, podle kterého je obsah řazen.</p>
+
+		<p><a href="./demo.html">Demonstrační tabulka</a> - sloupec "Věk" je řazen podle číselných hodnot narozdíl od sloupce "Plat", který je řazen jako řětězec (stejně jako zbylé sloupce). Ve spodní části tabulky je pro demonstraci zobrazen prvek HTML "tfoot", který není ovlivněn tvořením nové hlavičky.</p>
+    </body>
+</html>

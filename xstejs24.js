@@ -8,9 +8,10 @@
 // Hlavní zdroj - https://www.w3schools.com/howto/howto_js_filter_table.asp
 // http://stackoverflow.com/questions/3248869/how-do-i-get-data-from-a-data-table-in-javascript
 
+// Globální proměnná pro tabulku
 var table;
 
-// Funkce pro vytvoření formulářů u jednotlivých sloupců tabulky
+// Funkce pro vytvoření formulářů u jednotlivých sloupců tabulky v hlavičce
 function createForms(tableId) {
 	// načtení tabulky
 	table = document.getElementById(tableId);	
@@ -29,21 +30,16 @@ function createForms(tableId) {
 		console.log(colCount);
 	}
 
-	//newTableHead = table.createTHead(); // 
-	//newTableHead = document.createElement('thead');
-	//var row = tableHead.insertRow(0);
-
-	// Add search formular to all columns
+	// Přidání filtrovacího formuláře ke všem sloupcům
 	for (i = 0; i < colCount; i++){
 		var newCell = document.createElement('th');
+		// Vložení dvou tlačítek pro řazení
 		newCell.innerHTML = '<div class="sort"><button onclick="sortTable('+i+',true)" class="sortAsc"/><button onclick="sortTable('+i+',false)" class="sortDsc"/>'
-		newCell.innerHTML += '<input type="text" class="cell" id="form_'+i+'" onkeyup="filterData('+colCount+')" placeholder="Filter by.."/></div>';
+		// Vložení pole pro vyhledávání
+		newCell.innerHTML += '<input type="text" class="cell" id="form-'+i+'" onkeyup="filterData('+colCount+')" placeholder="Filtrovat podle..."/></div>';
 		tableHead.appendChild(newCell);
-		//newTableHead.appendChild(cell);
-		//tableHead.insertBefore(cell, tableHead.getElementsByTagName('td')[0]);
 	}
 	table.insertBefore(tableHead, table.getElementsByTagName('tbody')[0]);
-	//table.insertBefore(newTableHead, table.getElementsByTagName('thead')[0]);
 };
 
 // Filtrace jednotlivých řádků na základě vstupu z formuláře
@@ -58,7 +54,7 @@ function filterData(colCount){
 		var showThisLine = true;
 		// procházení sloupců
 		for (i = 0; i < colCount; i++) {
-			var input = document.getElementById('form_'+i);		// Získání jednotlivých formulářů podle označení form_n kde n je číslo
+			var input = document.getElementById('form-'+i);		// Získání jednotlivých formulářů podle označení form_n kde n je číslo
 			var filter = input.value.toUpperCase();				// Získání hodnoty z jednotlivých formulářů pro filtrování
 			var td = tr[j].getElementsByTagName('td')[i];
 //			console.log("Filtruji podle: "+input.value);
@@ -83,8 +79,8 @@ function filterData(colCount){
 	} 
 }
 
-
-// https://www.w3schools.com/howto/howto_js_sort_table.asp
+// Funkce pro řazení hodnot v tabulce, dle příznaku řadí sestupně/vzestupně.
+// Hlavní zdroj - https://www.w3schools.com/howto/howto_js_sort_table.asp
 function sortTable(cellId,asc){
 	// získání typu sloupce
 	var type = table.tHead.rows[0];	
